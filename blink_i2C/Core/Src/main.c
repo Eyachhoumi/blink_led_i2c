@@ -100,6 +100,8 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
       receiveDataFromESP32();
+      HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12); // Allumer une LED par exemple
+   HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
