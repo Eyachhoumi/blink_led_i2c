@@ -52,17 +52,24 @@ default.size.stdout \
 OBJDUMP_LIST += \
 blink_i2C.list \
 
+BIN_FILES += \
+blink_i2C.bin \
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: blink_i2C.elf secondary-outputs
+main-build: blink_i2C.elf secondary-outputs blink_i2C.bin
 
 # Tool invocations
 blink_i2C.elf blink_i2C.map: $(OBJS) $(USER_OBJS) /home/pc/Desktop/projet_stm/blink_led/blink_i2C/STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-gcc -o "blink_i2C.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/pc/Desktop/projet_stm/blink_led/blink_i2C/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="blink_i2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
+	@echo ' '
+
+blink_i2C.bin: blink_i2C.elf
+	arm-none-eabi-objcopy -O binary "blink_i2C.elf" "blink_i2C.bin"
+	@echo 'Finished converting: $@'
 	@echo ' '
 
 default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
@@ -77,7 +84,7 @@ blink_i2C.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 
 # Other Targets
 clean:
-	-$(RM) blink_i2C.elf blink_i2C.list blink_i2C.map default.size.stdout
+	-$(RM) blink_i2C.elf blink_i2C.list blink_i2C.map blink_i2C.bin default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
@@ -92,3 +99,4 @@ warn-no-linker-script-specified:
 .PHONY: all clean dependents main-build fail-specified-linker-script-missing warn-no-linker-script-specified
 
 -include ../makefile.targets
+

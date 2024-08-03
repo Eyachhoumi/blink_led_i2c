@@ -103,7 +103,6 @@ int main(void)
   }
   /* USER CODE END 3 */
 }
-
 void receiveDataFromESP32() {
     uint8_t buffer[1024];
     uint32_t fileSize = 0;
@@ -125,8 +124,6 @@ void receiveDataFromESP32() {
     HAL_I2C_Master_Receive(&hi2c1, 0x08 << 1, crc, sizeof(crc), HAL_MAX_DELAY);
     // Process received CRC...
 }
-
-
 
 /**
   * @brief System Clock Configuration

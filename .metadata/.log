@@ -1,0 +1,29 @@
+!SESSION 2024-08-03 11:52:40.338 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-03 11:52:51.395
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-03 11:52:51.396
+!MESSAGE Log4j2 initialized with config file /home/pc/Desktop/projet_stm/blink_led/i2C/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-03 11:52:54.162
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-08-03 11:53:45.302
+!MESSAGE Indexed 'blink_i2C' (23 sources, 120 headers) in 2.56 sec: 11,873 declarations; 48,967 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.39%)
+
+!ENTRY org.eclipse.ui.ide 4 4 2024-08-03 12:05:40.353
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 2 1 2024-08-03 12:05:40.358
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2024-08-03 12:05:40.358
+!MESSAGE The project description file (.project) for 'blink_i2C' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY org.eclipse.core.resources 2 10035 2024-08-03 12:05:40.429
+!MESSAGE The workspace will exit with unsaved changes in this session.
